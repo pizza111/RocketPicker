@@ -14,6 +14,7 @@
 		B45D09752A74F72F0045F77C /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = B45D09742A74F72F0045F77C /* Apollo */; };
 		B4677AF92A7577D400836516 /* schema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = B4677AF82A7577D400836516 /* schema.graphqls */; };
 		B4677AFF2A7578CB00836516 /* RocketPickerAPI in Frameworks */ = {isa = PBXBuildFile; productRef = B4677AFE2A7578CB00836516 /* RocketPickerAPI */; };
+		B4677B012A758C2000836516 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4677B002A758C2000836516 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		B4677AF82A7577D400836516 /* schema.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
 		B4677AFA2A75780100836516 /* LaunchList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchList.graphql; sourceTree = "<group>"; };
 		B4677AFC2A75788F00836516 /* RocketPickerAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RocketPickerAPI; sourceTree = "<group>"; };
+		B4677B002A758C2000836516 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				B45D09652A74F6820045F77C /* RocketPickerApp.swift */,
 				B45D09672A74F6820045F77C /* ContentView.swift */,
+				B4677B002A758C2000836516 /* Network.swift */,
 				B45D09692A74F6830045F77C /* Assets.xcassets */,
 				B45D096B2A74F6830045F77C /* Preview Content */,
 			);
@@ -182,6 +185,7 @@
 			files = (
 				B45D09682A74F6820045F77C /* ContentView.swift in Sources */,
 				B45D09662A74F6820045F77C /* RocketPickerApp.swift in Sources */,
+				B4677B012A758C2000836516 /* Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
