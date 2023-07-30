@@ -6,18 +6,33 @@
 //
 
 import SwiftUI
+import RocketPickerAPI
 
 struct ContentView: View {
     @EnvironmentObject var launchViewModel: LaunchListViewModel
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ScrollView {
+            ForEach(launchViewModel.launches, id: \.self) { launch in
+                singleViewCell(launch: launch)
+            }
         }
+    }
+    
+    @MainActor
+    func singleViewCell(launch: LaunchListQuery.Data.Launches.Launch) -> some View {
+        VStack(alignment: .leading) {
+            Text("Mission: \(launch.mission?.name ?? "")")
+                .font(.title2.bold())
+            Text("Rocket name: \(launch.rocket?.name ?? "") ")
+                .font(.title3.bold())
+            Text("Launch ID: \(launch.id)")
+            Text("Site: \(launch.site ?? "")")
+        }
+        .frame(maxWidth: 300, alignment: .leading)
         .padding()
+        .background(Color.blue.opacity(0.5))
+        .cornerRadius(20)
     }
 }
 

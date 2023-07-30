@@ -10,7 +10,7 @@ import RocketPickerAPI
 import Apollo
 
 class LaunchListViewModel: ObservableObject {
-    @Published var launches: LaunchListQuery.Data.Launches?
+    @Published var launches: [LaunchListQuery.Data.Launches.Launch] = []
     @Published var appAlert: AppAlert?
     @Published var errorBool: Bool?
     
@@ -24,9 +24,9 @@ class LaunchListViewModel: ObservableObject {
             
             switch result {
             case .success(let graphQLResult):
-                if let launchConnection = graphQLResult.data?.launches {
+                if let launches = graphQLResult.data?.launches {
                     self.appAlert = nil
-                    self.launches = launchConnection
+                    self.launches = self.process(data: launches)
                 }
                 if let errors = graphQLResult.errors {
                     self.appAlert = .errors(errors: errors)
@@ -35,6 +35,10 @@ class LaunchListViewModel: ObservableObject {
                 self.appAlert = .error(error: error)
             }
         }
+    }
+    
+    func process(data: LaunchListQuery.Data.Launches) -> [LaunchListQuery.Data.Launches.Launch] {
+        return data.launches.compactMap { $0 }
     }
 }
 
@@ -58,5 +62,4 @@ enum AppAlert {
             return "Failed to decode data"
         }
     }
-
 }
