@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct RocketPickerApp: App {
+    @StateObject var launchViewModel = LaunchListViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(launchViewModel)
         }
     }
 }
