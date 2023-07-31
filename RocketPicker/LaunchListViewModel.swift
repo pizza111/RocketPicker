@@ -12,7 +12,7 @@ import Apollo
 class LaunchListViewModel: ObservableObject {
     @Published var launches: [LaunchListQuery.Data.Launches.Launch] = []
     @Published var appAlert: AppAlert?
-    @Published var errorBool: Bool?
+    @Published var errorBool: Bool = false
     
     init() {
         fetch()
@@ -25,14 +25,17 @@ class LaunchListViewModel: ObservableObject {
             switch result {
             case .success(let graphQLResult):
                 if let launches = graphQLResult.data?.launches {
-                    self.appAlert = nil
+                    self.errorBool = false
                     self.launches = self.process(data: launches)
+                    
                 }
                 if let errors = graphQLResult.errors {
                     self.appAlert = .errors(errors: errors)
+                    self.errorBool = true
                 }
             case .failure(let error):
                 self.appAlert = .error(error: error)
+                self.errorBool = true
             }
         }
     }
