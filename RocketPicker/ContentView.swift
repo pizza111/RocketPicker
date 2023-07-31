@@ -17,6 +17,12 @@ struct ContentView: View {
                 singleViewCell(launch: launch)
             }
         }
+        .alert("Ops!", isPresented: $launchViewModel.errorBool) {
+            Button("Cancel", role: .cancel) {}
+            Button("Try again") { launchViewModel.fetch() }
+        } message: {
+            Text(launchViewModel.appAlert?.customTextErrorMessage ?? "There was an error")
+        }
     }
     
     @MainActor
