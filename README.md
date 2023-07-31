@@ -1,4 +1,4 @@
-RocketPicker is a simple app in SwiftUI using Apollo and GraphQL instead of a regular REST API, along with MVVM
+RocketPicker is a simple one view list app displaying fetched data written in SwiftUI using Apollo and GraphQL instead of a regular REST API, along with MVVM
 - SwiftUI
 - GraphQL
 - Apollo
